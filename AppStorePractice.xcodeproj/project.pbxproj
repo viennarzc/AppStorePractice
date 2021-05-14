@@ -15,6 +15,10 @@
 		21F49572264E7A1900A9677F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21F49570264E7A1900A9677F /* LaunchScreen.storyboard */; };
 		21F4957D264E7A1A00A9677F /* AppStorePracticeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F4957C264E7A1A00A9677F /* AppStorePracticeTests.swift */; };
 		21F49588264E7A1A00A9677F /* AppStorePracticeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F49587264E7A1A00A9677F /* AppStorePracticeUITests.swift */; };
+		21F77AAB264EB17B006FB72E /* HeaderSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F77AAA264EB17B006FB72E /* HeaderSupplementaryView.swift */; };
+		21F77AB0264EB1F0006FB72E /* HeaderSupplementaryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21F77AAF264EB1F0006FB72E /* HeaderSupplementaryView.xib */; };
+		21F77AB5264EBBD6006FB72E /* NewBannerSupplementaryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21F77AB4264EBBD6006FB72E /* NewBannerSupplementaryView.xib */; };
+		21F77ABA264EBC18006FB72E /* NewBannerSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F77AB9264EBC18006FB72E /* NewBannerSupplementaryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,10 @@
 		21F49583264E7A1A00A9677F /* AppStorePracticeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppStorePracticeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		21F49587264E7A1A00A9677F /* AppStorePracticeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorePracticeUITests.swift; sourceTree = "<group>"; };
 		21F49589264E7A1A00A9677F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21F77AAA264EB17B006FB72E /* HeaderSupplementaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderSupplementaryView.swift; sourceTree = "<group>"; };
+		21F77AAF264EB1F0006FB72E /* HeaderSupplementaryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderSupplementaryView.xib; sourceTree = "<group>"; };
+		21F77AB4264EBBD6006FB72E /* NewBannerSupplementaryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewBannerSupplementaryView.xib; sourceTree = "<group>"; };
+		21F77AB9264EBC18006FB72E /* NewBannerSupplementaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBannerSupplementaryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +110,10 @@
 				21F49565264E7A1900A9677F /* AppDelegate.swift */,
 				21F49567264E7A1900A9677F /* SceneDelegate.swift */,
 				21F49569264E7A1900A9677F /* ViewController.swift */,
+				21F77AAA264EB17B006FB72E /* HeaderSupplementaryView.swift */,
+				21F77AB4264EBBD6006FB72E /* NewBannerSupplementaryView.xib */,
+				21F77AB9264EBC18006FB72E /* NewBannerSupplementaryView.swift */,
+				21F77AAF264EB1F0006FB72E /* HeaderSupplementaryView.xib */,
 				21F4956B264E7A1900A9677F /* Main.storyboard */,
 				21F4956E264E7A1900A9677F /* Assets.xcassets */,
 				21F49570264E7A1900A9677F /* LaunchScreen.storyboard */,
@@ -232,7 +244,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				21F49572264E7A1900A9677F /* LaunchScreen.storyboard in Resources */,
+				21F77AB0264EB1F0006FB72E /* HeaderSupplementaryView.xib in Resources */,
 				21F4956F264E7A1900A9677F /* Assets.xcassets in Resources */,
+				21F77AB5264EBBD6006FB72E /* NewBannerSupplementaryView.xib in Resources */,
 				21F4956D264E7A1900A9677F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,6 +273,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				21F4956A264E7A1900A9677F /* ViewController.swift in Sources */,
+				21F77AAB264EB17B006FB72E /* HeaderSupplementaryView.swift in Sources */,
+				21F77ABA264EBC18006FB72E /* NewBannerSupplementaryView.swift in Sources */,
 				21F49566264E7A1900A9677F /* AppDelegate.swift in Sources */,
 				21F49568264E7A1900A9677F /* SceneDelegate.swift in Sources */,
 			);
