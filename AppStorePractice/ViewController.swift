@@ -11,9 +11,7 @@ class ViewController: UIViewController {
 
 	@IBOutlet weak var collectionView: UICollectionView!
 	
-	let colors =  [UIColor.red, UIColor.yellow, UIColor.systemPink, UIColor.systemGreen, UIColor.systemBlue, UIColor.systemTeal, UIColor.brown, UIColor.cyan, UIColor.systemGray3, UIColor.init(displayP3Red: 0.34, green: 0.19, blue: 0.49, alpha: 1),
-				   UIColor.init(displayP3Red: 0.26, green: 0.24, blue: 0.9, alpha: 1),
-				   UIColor.init(displayP3Red: 0.53, green: 0.11, blue: 0.63, alpha: 1),UIColor.red, UIColor.yellow, UIColor.systemPink, UIColor.systemGreen, UIColor.systemBlue, UIColor.systemTeal, UIColor.brown, UIColor.cyan, UIColor.systemGray3,]
+	let colors =  [UIColor.red, UIColor.yellow, UIColor.systemPink, UIColor.systemGreen, UIColor.systemBlue, UIColor.systemTeal, UIColor.brown, UIColor.cyan, UIColor.systemGray3,]
 	
 	let flowLayout: UICollectionViewFlowLayout = {
 		let layout = UICollectionViewFlowLayout()
@@ -46,22 +44,89 @@ class ViewController: UIViewController {
 		let groupSize = NSCollectionLayoutSize(widthDimension: widthDimension, heightDimension: heightDimension)
 		let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
 		
-		//header
-		let headerItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(200))
-		let headerItem = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerItemSize, elementKind: "header", alignment: .top)
-		headerItem.pinToVisibleBounds = true
+//		//header
+//		let headerItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(60))
+//		let headerItem = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerItemSize, elementKind: "header", alignment: .top)
+//		headerItem.pinToVisibleBounds = true
+		
+		//background
+		
+		let backgroundItem = NSCollectionLayoutDecorationItem.background(elementKind: "background")
+		let backgroundInset: CGFloat = 8
+		backgroundItem.contentInsets = NSDirectionalEdgeInsets(top: backgroundInset, leading: backgroundInset, bottom: backgroundInset, trailing: backgroundInset)
+		
 		
 		//section
 		let section = NSCollectionLayoutSection(group: group)
 		
+		let sectionInset: CGFloat = 16
+		section.contentInsets = NSDirectionalEdgeInsets(top: sectionInset, leading: sectionInset, bottom: sectionInset, trailing: sectionInset)
+		
 		// after section delcaration…
-		section.contentInsets = NSDirectionalEdgeInsets(top: inset, leading: inset, bottom: inset, trailing: inset)
-		section.boundarySupplementaryItems = [headerItem]
-  
+//		section.contentInsets = NSDirectionalEdgeInsets(top: inset, leading: inset, bottom: inset, trailing: inset)
+		section.decorationItems = [backgroundItem]
+//		section.boundarySupplementaryItems = [headerItem]
 		
 		let layout = UICollectionViewCompositionalLayout(section: section)
+	
+		layout.register(UINib(nibName: "BackgroundSupplementaryView", bundle: nil), forDecorationViewOfKind: "background")
 		return layout
 		
+	}()
+	
+	let compLayout = UICollectionViewCompositionalLayout { (index, environment) -> NSCollectionLayoutSection? in
+		let itemsPerRow = environment.traitCollection.horizontalSizeClass == .compact ? 3 : 6 //compact for iphones else ipad
+		let fraction: CGFloat = 1 / CGFloat(itemsPerRow)
+		let inset: CGFloat = 2.5
+		
+		//Item
+		let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(fraction), heightDimension: .fractionalHeight(1))
+		
+		let item = NSCollectionLayoutItem(layoutSize: itemSize)
+		item.contentInsets = NSDirectionalEdgeInsets(top: inset, leading: inset, bottom: inset, trailing: inset)
+		
+		// Group
+		let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(fraction))
+		let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+		
+		// Section
+		let section = NSCollectionLayoutSection(group: group)
+		section.contentInsets = NSDirectionalEdgeInsets(top: inset, leading: inset, bottom: inset, trailing: inset)
+		
+		// Supplementary Item
+		let headerItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(100))
+		let headerItem = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerItemSize, elementKind: "header", alignment: .top)
+		section.boundarySupplementaryItems = [headerItem]
+		
+		return section
+		
+	}
+	
+	let compositionalLayoutTwo: UICollectionViewCompositionalLayout = {
+		//large Item
+		let largeItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalHeight(1))
+		let largeItem = NSCollectionLayoutItem(layoutSize: largeItemSize)
+		
+		//small Item Size
+		let smallItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.5))
+		let smallItem = NSCollectionLayoutItem(layoutSize: smallItemSize)
+		
+		
+		// Vertical group
+		let verticalGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.25), heightDimension: .fractionalHeight(1))
+		let verticalGroup = NSCollectionLayoutGroup.vertical(layoutSize: verticalGroupSize, subitems: [smallItem])
+		
+		let nestedGroup = verticalGroup
+		
+		//Outer group
+		let outerGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(0.5))
+		
+		let outerGroup = NSCollectionLayoutGroup.horizontal(layoutSize: outerGroupSize, subitems: [largeItem, nestedGroup, nestedGroup])
+		
+		//section
+		
+		let section = NSCollectionLayoutSection(group: outerGroup)
+		return UICollectionViewCompositionalLayout(section: section)
 	}()
 
 	override func viewDidLoad() {
@@ -72,7 +137,7 @@ class ViewController: UIViewController {
 		collectionView.register(UINib(nibName: "NewBannerSupplementaryView", bundle: nil), forSupplementaryViewOfKind: "new-banner", withReuseIdentifier: "NewBannerSupplementaryView")
 		collectionView.dataSource = self
 		collectionView.delegate = self
-		collectionView.collectionViewLayout = compositionalLayout
+		collectionView.collectionViewLayout = compositionalLayoutTwo
 	}
 
 
@@ -90,7 +155,7 @@ extension ViewController: UICollectionViewDataSource {
 	}
 	
 	func numberOfSections(in collectionView: UICollectionView) -> Int {
-		return 2
+		return 4
 	}
 	
 	

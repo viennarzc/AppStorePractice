@@ -19,6 +19,8 @@
 		21F77AB0264EB1F0006FB72E /* HeaderSupplementaryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21F77AAF264EB1F0006FB72E /* HeaderSupplementaryView.xib */; };
 		21F77AB5264EBBD6006FB72E /* NewBannerSupplementaryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21F77AB4264EBBD6006FB72E /* NewBannerSupplementaryView.xib */; };
 		21F77ABA264EBC18006FB72E /* NewBannerSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F77AB9264EBC18006FB72E /* NewBannerSupplementaryView.swift */; };
+		21F77AC0264FADDD006FB72E /* BackgroundSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F77ABE264FADDD006FB72E /* BackgroundSupplementaryView.swift */; };
+		21F77AC1264FADDD006FB72E /* BackgroundSupplementaryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21F77ABF264FADDD006FB72E /* BackgroundSupplementaryView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		21F77AAF264EB1F0006FB72E /* HeaderSupplementaryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderSupplementaryView.xib; sourceTree = "<group>"; };
 		21F77AB4264EBBD6006FB72E /* NewBannerSupplementaryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewBannerSupplementaryView.xib; sourceTree = "<group>"; };
 		21F77AB9264EBC18006FB72E /* NewBannerSupplementaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBannerSupplementaryView.swift; sourceTree = "<group>"; };
+		21F77ABE264FADDD006FB72E /* BackgroundSupplementaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundSupplementaryView.swift; sourceTree = "<group>"; };
+		21F77ABF264FADDD006FB72E /* BackgroundSupplementaryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BackgroundSupplementaryView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,8 @@
 				21F49567264E7A1900A9677F /* SceneDelegate.swift */,
 				21F49569264E7A1900A9677F /* ViewController.swift */,
 				21F77AAA264EB17B006FB72E /* HeaderSupplementaryView.swift */,
+				21F77ABE264FADDD006FB72E /* BackgroundSupplementaryView.swift */,
+				21F77ABF264FADDD006FB72E /* BackgroundSupplementaryView.xib */,
 				21F77AB4264EBBD6006FB72E /* NewBannerSupplementaryView.xib */,
 				21F77AB9264EBC18006FB72E /* NewBannerSupplementaryView.swift */,
 				21F77AAF264EB1F0006FB72E /* HeaderSupplementaryView.xib */,
@@ -244,6 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21F49572264E7A1900A9677F /* LaunchScreen.storyboard in Resources */,
+				21F77AC1264FADDD006FB72E /* BackgroundSupplementaryView.xib in Resources */,
 				21F77AB0264EB1F0006FB72E /* HeaderSupplementaryView.xib in Resources */,
 				21F4956F264E7A1900A9677F /* Assets.xcassets in Resources */,
 				21F77AB5264EBBD6006FB72E /* NewBannerSupplementaryView.xib in Resources */,
@@ -275,6 +282,7 @@
 				21F4956A264E7A1900A9677F /* ViewController.swift in Sources */,
 				21F77AAB264EB17B006FB72E /* HeaderSupplementaryView.swift in Sources */,
 				21F77ABA264EBC18006FB72E /* NewBannerSupplementaryView.swift in Sources */,
+				21F77AC0264FADDD006FB72E /* BackgroundSupplementaryView.swift in Sources */,
 				21F49566264E7A1900A9677F /* AppDelegate.swift in Sources */,
 				21F49568264E7A1900A9677F /* SceneDelegate.swift in Sources */,
 			);
@@ -453,6 +461,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6UWE2EP59T;
 				INFOPLIST_FILE = AppStorePractice/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -471,6 +480,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6UWE2EP59T;
 				INFOPLIST_FILE = AppStorePractice/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
