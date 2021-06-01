@@ -21,6 +21,15 @@ class ViewController: UIViewController {
 		return layout
 	}()
 	
+	var selectedCompLayout: CompLayout = .one
+	
+	enum CompLayout {
+		case one
+		case two
+		case three
+		case four
+	}
+	
 	let compositionalLayout: UICollectionViewCompositionalLayout = {
 		
 		let inset: CGFloat = 8
@@ -74,7 +83,7 @@ class ViewController: UIViewController {
 		
 	}()
 	
-	let compLayout = UICollectionViewCompositionalLayout { (index, environment) -> NSCollectionLayoutSection? in
+	let compositionalLayoutFour = UICollectionViewCompositionalLayout { (index, environment) -> NSCollectionLayoutSection? in
 		let itemsPerRow = environment.traitCollection.horizontalSizeClass == .compact ? 3 : 6 //compact for iphones else ipad
 		let fraction: CGFloat = 1 / CGFloat(itemsPerRow)
 		let inset: CGFloat = 2.5
@@ -103,13 +112,19 @@ class ViewController: UIViewController {
 	}
 	
 	let compositionalLayoutTwo: UICollectionViewCompositionalLayout = {
+		let inset: CGFloat = 2.5
+		
+		
 		//large Item
 		let largeItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalHeight(1))
 		let largeItem = NSCollectionLayoutItem(layoutSize: largeItemSize)
+		largeItem.contentInsets = NSDirectionalEdgeInsets(top: inset, leading: inset, bottom: inset, trailing: inset)
 		
 		//small Item Size
 		let smallItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.5))
 		let smallItem = NSCollectionLayoutItem(layoutSize: smallItemSize)
+		smallItem.contentInsets = NSDirectionalEdgeInsets(top: inset, leading: inset, bottom: inset, trailing: inset)
+		
 		
 		
 		// Vertical group
@@ -126,8 +141,45 @@ class ViewController: UIViewController {
 		//section
 		
 		let section = NSCollectionLayoutSection(group: outerGroup)
+		section.contentInsets = NSDirectionalEdgeInsets(top: inset, leading: inset, bottom: inset, trailing: inset)
+		
 		return UICollectionViewCompositionalLayout(section: section)
 	}()
+	
+	let compositionalLayoutThree: UICollectionViewCompositionalLayout = {
+		let fraction: CGFloat = 1.0 / 3.0
+		
+		// Item
+		let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+		let item = NSCollectionLayoutItem(layoutSize: itemSize)
+		item.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
+		// Group
+		let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(fraction), heightDimension: .fractionalWidth(fraction))
+		let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+		
+		// Section
+		let section = NSCollectionLayoutSection(group: group)
+		section.contentInsets = NSDirectionalEdgeInsets(top: 100, leading: 2.5, bottom: 0, trailing: 2.5)
+		section.orthogonalScrollingBehavior = .continuous
+		
+		section.visibleItemsInvalidationHandler = { (items, offset, environment) in
+			
+			items.forEach { item in
+				let distanceFromCenter = abs((item.frame.midX - offset.x) - environment.container.contentSize.width / 2.0)
+				let minScale: CGFloat = 0.7
+				let maxScale: CGFloat = 1.1
+				
+				let scale = max(maxScale - (distanceFromCenter / environment.container.contentSize.width), minScale)
+				item.transform = CGAffineTransform(scaleX: scale, y: scale)
+		  
+			}
+			
+		}
+		
+		return UICollectionViewCompositionalLayout(section: section)
+	}()
+	
+	
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -137,7 +189,21 @@ class ViewController: UIViewController {
 		collectionView.register(UINib(nibName: "NewBannerSupplementaryView", bundle: nil), forSupplementaryViewOfKind: "new-banner", withReuseIdentifier: "NewBannerSupplementaryView")
 		collectionView.dataSource = self
 		collectionView.delegate = self
-		collectionView.collectionViewLayout = compositionalLayoutTwo
+		
+		
+		switch selectedCompLayout {
+			
+			case .one:
+				collectionView.collectionViewLayout = compositionalLayout
+			case .two:
+				collectionView.collectionViewLayout = compositionalLayoutTwo
+			case .three:
+				collectionView.collectionViewLayout = compositionalLayoutThree
+			case .four:
+				collectionView.collectionViewLayout = compositionalLayoutFour
+		}
+		
+		
 	}
 
 
