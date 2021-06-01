@@ -22,6 +22,7 @@
 		21F77AC0264FADDD006FB72E /* BackgroundSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F77ABE264FADDD006FB72E /* BackgroundSupplementaryView.swift */; };
 		21F77AC1264FADDD006FB72E /* BackgroundSupplementaryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21F77ABF264FADDD006FB72E /* BackgroundSupplementaryView.xib */; };
 		21FA8E6326666C0600FCB809 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FA8E6226666C0600FCB809 /* MainViewController.swift */; };
+		21FA8E65266672D700FCB809 /* AppStoreGamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FA8E64266672D700FCB809 /* AppStoreGamesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		21F77ABE264FADDD006FB72E /* BackgroundSupplementaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundSupplementaryView.swift; sourceTree = "<group>"; };
 		21F77ABF264FADDD006FB72E /* BackgroundSupplementaryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BackgroundSupplementaryView.xib; sourceTree = "<group>"; };
 		21FA8E6226666C0600FCB809 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		21FA8E64266672D700FCB809 /* AppStoreGamesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreGamesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,14 +117,9 @@
 			children = (
 				21F49565264E7A1900A9677F /* AppDelegate.swift */,
 				21F49567264E7A1900A9677F /* SceneDelegate.swift */,
-				21F49569264E7A1900A9677F /* ViewController.swift */,
+				21FA8E682666735800FCB809 /* AppStoreGames */,
 				21FA8E6226666C0600FCB809 /* MainViewController.swift */,
-				21F77AAA264EB17B006FB72E /* HeaderSupplementaryView.swift */,
-				21F77ABE264FADDD006FB72E /* BackgroundSupplementaryView.swift */,
-				21F77ABF264FADDD006FB72E /* BackgroundSupplementaryView.xib */,
-				21F77AB4264EBBD6006FB72E /* NewBannerSupplementaryView.xib */,
-				21F77AB9264EBC18006FB72E /* NewBannerSupplementaryView.swift */,
-				21F77AAF264EB1F0006FB72E /* HeaderSupplementaryView.xib */,
+				21FA8E672666734900FCB809 /* View */,
 				21F4956B264E7A1900A9677F /* Main.storyboard */,
 				21F4956E264E7A1900A9677F /* Assets.xcassets */,
 				21F49570264E7A1900A9677F /* LaunchScreen.storyboard */,
@@ -147,6 +144,28 @@
 				21F49589264E7A1A00A9677F /* Info.plist */,
 			);
 			path = AppStorePracticeUITests;
+			sourceTree = "<group>";
+		};
+		21FA8E672666734900FCB809 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				21F49569264E7A1900A9677F /* ViewController.swift */,
+				21F77AAA264EB17B006FB72E /* HeaderSupplementaryView.swift */,
+				21F77ABE264FADDD006FB72E /* BackgroundSupplementaryView.swift */,
+				21F77ABF264FADDD006FB72E /* BackgroundSupplementaryView.xib */,
+				21F77AB4264EBBD6006FB72E /* NewBannerSupplementaryView.xib */,
+				21F77AB9264EBC18006FB72E /* NewBannerSupplementaryView.swift */,
+				21F77AAF264EB1F0006FB72E /* HeaderSupplementaryView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		21FA8E682666735800FCB809 /* AppStoreGames */ = {
+			isa = PBXGroup;
+			children = (
+				21FA8E64266672D700FCB809 /* AppStoreGamesViewController.swift */,
+			);
+			path = AppStoreGames;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,6 +303,7 @@
 			files = (
 				21FA8E6326666C0600FCB809 /* MainViewController.swift in Sources */,
 				21F4956A264E7A1900A9677F /* ViewController.swift in Sources */,
+				21FA8E65266672D700FCB809 /* AppStoreGamesViewController.swift in Sources */,
 				21F77AAB264EB17B006FB72E /* HeaderSupplementaryView.swift in Sources */,
 				21F77ABA264EBC18006FB72E /* NewBannerSupplementaryView.swift in Sources */,
 				21F77AC0264FADDD006FB72E /* BackgroundSupplementaryView.swift in Sources */,

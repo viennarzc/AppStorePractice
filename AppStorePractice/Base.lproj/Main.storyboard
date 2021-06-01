@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Rs9-KG-MCh">
-                                <rect key="frame" x="145" y="364" width="124" height="168"/>
+                                <rect key="frame" x="145" y="341" width="124" height="214"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oed-aN-F6e">
                                         <rect key="frame" x="0.0" y="0.0" width="124" height="30"/>
@@ -62,6 +62,16 @@
                                             <action selector="didTapButton:" destination="3aE-fr-t6e" eventType="touchUpInside" id="DUI-Tk-Cxa"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LOt-B9-Q0f">
+                                        <rect key="frame" x="0.0" y="184" width="124" height="30"/>
+                                        <color key="backgroundColor" name="AccentColor"/>
+                                        <state key="normal" title="AppStore Games">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapButton:" destination="3aE-fr-t6e" eventType="touchUpInside" id="Y6U-qX-jnH"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -76,6 +86,7 @@
                     <navigationItem key="navigationItem" id="wfK-64-Sax"/>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="ViewController" id="klk-8V-LII"/>
+                        <segue destination="Th7-5g-nU5" kind="show" identifier="ToAppStoreGames" id="UF2-mW-epB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OC5-9x-kpd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -129,6 +140,50 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1042.0289855072465" y="116.51785714285714"/>
+        </scene>
+        <!--App Store Games View Controller-->
+        <scene sceneID="KFu-yg-Jgn">
+            <objects>
+                <viewController id="Th7-5g-nU5" customClass="AppStoreGamesViewController" customModule="AppStorePractice" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CE0-ZF-vQD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CXH-4a-XaF">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="msr-Q3-kcC">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="l4x-Uh-exD">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="JKB-R2-eFh">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="GS6-XO-qvm"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="GS6-XO-qvm" firstAttribute="bottom" secondItem="CXH-4a-XaF" secondAttribute="bottom" id="7U1-Ta-7kr"/>
+                            <constraint firstItem="CXH-4a-XaF" firstAttribute="top" secondItem="GS6-XO-qvm" secondAttribute="top" id="DBm-Wd-D02"/>
+                            <constraint firstItem="CXH-4a-XaF" firstAttribute="leading" secondItem="GS6-XO-qvm" secondAttribute="leading" id="aDp-6M-AW1"/>
+                            <constraint firstItem="GS6-XO-qvm" firstAttribute="trailing" secondItem="CXH-4a-XaF" secondAttribute="trailing" id="j2H-u1-gLg"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Dh4-rs-gUF"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tBh-du-Z8b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1042" y="834"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8Bq-GF-O8L">

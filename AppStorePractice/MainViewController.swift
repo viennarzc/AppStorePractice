@@ -33,17 +33,31 @@ class MainViewController: UIViewController {
 	
 	@IBAction func didTapButton(_ sender: UIButton) {
 		
+		var identifier: String = ""
+		
 		if sender.currentTitle == "Style 1" {
 			selectedCompLayout = .one
+			identifier = "ViewController"
+			
 		} else if sender.currentTitle == "Style 2" {
 			selectedCompLayout = .two
+			identifier = "ViewController"
+			
 		} else if sender.currentTitle == "Style 3" {
 			selectedCompLayout = .three
+			identifier = "ViewController"
+			
 		} else if sender.currentTitle == "Style 4" {
 			selectedCompLayout = .four
+			identifier = "ViewController"
+			
+		} else if sender.currentTitle == "AppStore Games" {
+			identifier = "ToAppStoreGames"
 		}
 		
-		performSegue(withIdentifier: "ViewController", sender: self)
+		
+		performSegue(withIdentifier: identifier, sender: self)
+
 	}
 	
 }
