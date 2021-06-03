@@ -23,11 +23,14 @@ class ViewController: UIViewController {
 	
 	var selectedCompLayout: CompLayout = .one
 	
+	private var compLayouts = [UICollectionViewCompositionalLayout]()
+	
 	enum CompLayout {
 		case one
 		case two
 		case three
 		case four
+		case five
 	}
 	
 	let compositionalLayout: UICollectionViewCompositionalLayout = {
@@ -52,11 +55,59 @@ class ViewController: UIViewController {
 		//group
 		let groupSize = NSCollectionLayoutSize(widthDimension: widthDimension, heightDimension: heightDimension)
 		let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+	  
 		
-//		//header
-//		let headerItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(60))
-//		let headerItem = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerItemSize, elementKind: "header", alignment: .top)
-//		headerItem.pinToVisibleBounds = true
+		//background
+		
+		let backgroundItem = NSCollectionLayoutDecorationItem.background(elementKind: "background")
+		let backgroundInset: CGFloat = 8
+		backgroundItem.contentInsets = NSDirectionalEdgeInsets(top: backgroundInset, leading: backgroundInset, bottom: backgroundInset, trailing: backgroundInset)
+		
+		
+		//section
+		let section = NSCollectionLayoutSection(group: group)
+		
+		let sectionInset: CGFloat = 16
+		section.contentInsets = NSDirectionalEdgeInsets(top: sectionInset, leading: sectionInset, bottom: sectionInset, trailing: sectionInset)
+		
+		section.decorationItems = [backgroundItem]
+
+		
+		let layout = UICollectionViewCompositionalLayout(section: section)
+	
+		layout.register(UINib(nibName: "BackgroundSupplementaryView", bundle: nil), forDecorationViewOfKind: "background")
+		return layout
+		
+	}()
+	
+	let compositionalLayoutFive: UICollectionViewCompositionalLayout = {
+		
+		let inset: CGFloat = 8
+		
+		let widthDimension = NSCollectionLayoutDimension.fractionalWidth(1)
+		let heightDimension = NSCollectionLayoutDimension.fractionalWidth(1/3)
+		
+		//supplementary item
+		let layoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.1), heightDimension: .absolute(30))
+		let containerAnchor = NSCollectionLayoutAnchor(edges: [.bottom], absoluteOffset: CGPoint(x: 0, y: 10))
+		
+		let supplementaryItem = NSCollectionLayoutSupplementaryItem(layoutSize: layoutSize, elementKind: "new-banner", containerAnchor: containerAnchor)
+		supplementaryItem.zIndex = 2
+		
+		//item
+		let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1/3), heightDimension: .fractionalHeight(1))
+		let item = NSCollectionLayoutItem(layoutSize: itemSize, supplementaryItems: [supplementaryItem])
+		item.contentInsets = NSDirectionalEdgeInsets(top: inset, leading: inset, bottom: inset, trailing: inset)
+		
+		//group
+		let groupSize = NSCollectionLayoutSize(widthDimension: widthDimension, heightDimension: heightDimension)
+		let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+		
+		//header
+		let headerItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(60))
+		let headerItem = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerItemSize, elementKind: "header", alignment: .top)
+		headerItem.pinToVisibleBounds = true
+		headerItem.zIndex = 3
 		
 		//background
 		
@@ -72,12 +123,12 @@ class ViewController: UIViewController {
 		section.contentInsets = NSDirectionalEdgeInsets(top: sectionInset, leading: sectionInset, bottom: sectionInset, trailing: sectionInset)
 		
 		// after section delcaration…
-//		section.contentInsets = NSDirectionalEdgeInsets(top: inset, leading: inset, bottom: inset, trailing: inset)
+		section.contentInsets = NSDirectionalEdgeInsets(top: inset, leading: inset, bottom: inset, trailing: inset)
 		section.decorationItems = [backgroundItem]
-//		section.boundarySupplementaryItems = [headerItem]
+		section.boundarySupplementaryItems = [headerItem]
 		
 		let layout = UICollectionViewCompositionalLayout(section: section)
-	
+		
 		layout.register(UINib(nibName: "BackgroundSupplementaryView", bundle: nil), forDecorationViewOfKind: "background")
 		return layout
 		
@@ -201,9 +252,24 @@ class ViewController: UIViewController {
 				collectionView.collectionViewLayout = compositionalLayoutThree
 			case .four:
 				collectionView.collectionViewLayout = compositionalLayoutFour
+			case .five:
+				collectionView.collectionViewLayout = compositionalLayoutFive
 		}
 		
+		let barButtonItem = UIBarButtonItem.init(title: "Change Layout", style: .plain, target: self, action: #selector(handleChangeButton))
+		navigationItem.rightBarButtonItem = barButtonItem
 		
+		
+		compLayouts = [compositionalLayout, compositionalLayoutTwo, compositionalLayoutThree, compositionalLayoutFour]
+		
+	}
+	
+	@objc func handleChangeButton() {
+		
+		collectionView.collectionViewLayout = compLayouts.randomElement()!
+		collectionView.reloadData()
+		collectionView.scrollsToTop = true
+		collectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .bottom, animated: true)
 	}
 
 
