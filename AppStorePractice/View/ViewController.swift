@@ -13,6 +13,8 @@ class ViewController: UIViewController {
 	
 	let colors =  [UIColor.red, UIColor.yellow, UIColor.systemPink, UIColor.systemGreen, UIColor.systemBlue, UIColor.systemTeal, UIColor.brown, UIColor.cyan, UIColor.systemGray3,]
 	
+	var heights: [CGFloat] = [20.0, 50.0, 20.0, 44.0, 100.0, 24.0, 44.0, 60.0, 60.0]
+	
 	let flowLayout: UICollectionViewFlowLayout = {
 		let layout = UICollectionViewFlowLayout()
 		layout.minimumInteritemSpacing = 5
@@ -31,6 +33,8 @@ class ViewController: UIViewController {
 		case three
 		case four
 		case five
+		case six
+		case seven
 	}
 	
 	let compositionalLayout: UICollectionViewCompositionalLayout = {
@@ -230,6 +234,74 @@ class ViewController: UIViewController {
 		return UICollectionViewCompositionalLayout(section: section)
 	}()
 	
+	let compositionalLayoutSix: UICollectionViewCompositionalLayout = {
+		
+		let inset: CGFloat = 8
+		
+		let widthDimension = NSCollectionLayoutDimension.fractionalWidth(1)
+		let heightDimension = NSCollectionLayoutDimension.absolute(50)
+		
+		let layoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.1), heightDimension: .absolute(10))
+		let containerAnchor = NSCollectionLayoutAnchor(edges: [.bottom], absoluteOffset: CGPoint(x: 0, y: 10))
+		//item
+		let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(50))
+		let item = NSCollectionLayoutItem(layoutSize: itemSize)
+		item.contentInsets = NSDirectionalEdgeInsets(top: inset, leading: inset, bottom: inset, trailing: inset)
+		
+		//group
+		let groupSize = NSCollectionLayoutSize(widthDimension: widthDimension, heightDimension: heightDimension)
+		let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+		
+		
+		//background
+		
+		let backgroundItem = NSCollectionLayoutDecorationItem.background(elementKind: "background")
+		let backgroundInset: CGFloat = 8
+		backgroundItem.contentInsets = NSDirectionalEdgeInsets(top: backgroundInset, leading: backgroundInset, bottom: backgroundInset, trailing: backgroundInset)
+		
+		
+		//section
+		let section = NSCollectionLayoutSection(group: group)
+		
+		let sectionInset: CGFloat = 16
+		section.contentInsets = NSDirectionalEdgeInsets(top: sectionInset, leading: sectionInset, bottom: sectionInset, trailing: sectionInset)
+		
+		section.decorationItems = [backgroundItem]
+		
+		
+		let layout = UICollectionViewCompositionalLayout(section: section)
+		
+		layout.register(UINib(nibName: "BackgroundSupplementaryView", bundle: nil), forDecorationViewOfKind: "background")
+		return layout
+		
+	}()
+	
+	let compositionalLayoutSeven = UICollectionViewCompositionalLayout(sectionProvider: { (sectionIndex, environment) -> NSCollectionLayoutSection? in
+		let itemsPerRow = sectionIndex + 3
+		let fraction: CGFloat = 1 / CGFloat(itemsPerRow)
+		let inset: CGFloat = 2.5
+		
+		// Item
+		let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(fraction), heightDimension: .fractionalHeight(1))
+		let item = NSCollectionLayoutItem(layoutSize: itemSize)
+		item.contentInsets = NSDirectionalEdgeInsets(top: inset, leading: inset, bottom: inset, trailing: inset)
+		
+		// Group
+		let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(fraction))
+		let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+		
+		// Section
+		let section = NSCollectionLayoutSection(group: group)
+		section.contentInsets = NSDirectionalEdgeInsets(top: inset, leading: inset, bottom: inset, trailing: inset)
+		
+		// Supplementary Item
+		let headerItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(100))
+		let headerItem = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerItemSize, elementKind: "header", alignment: .top)
+		section.boundarySupplementaryItems = [headerItem]
+		
+		return section
+	})
+	
 	
 
 	override func viewDidLoad() {
@@ -254,13 +326,25 @@ class ViewController: UIViewController {
 				collectionView.collectionViewLayout = compositionalLayoutFour
 			case .five:
 				collectionView.collectionViewLayout = compositionalLayoutFive
+			case .six:
+				collectionView.collectionViewLayout = compositionalLayoutSix
+			case .seven:
+				collectionView.collectionViewLayout = compositionalLayoutSeven
 		}
 		
 		let barButtonItem = UIBarButtonItem.init(title: "Change Layout", style: .plain, target: self, action: #selector(handleChangeButton))
 		navigationItem.rightBarButtonItem = barButtonItem
 		
 		
-		compLayouts = [compositionalLayout, compositionalLayoutTwo, compositionalLayoutThree, compositionalLayoutFour]
+		compLayouts = [
+			compositionalLayout,
+			compositionalLayoutTwo,
+			compositionalLayoutThree,
+			compositionalLayoutFour,
+			compositionalLayoutFive,
+			compositionalLayoutSix,
+			compositionalLayoutSeven
+		]
 		
 	}
 	
@@ -285,9 +369,9 @@ extension ViewController: UICollectionViewDataSource {
 		cell.backgroundColor = colors[indexPath.row]
 		return cell
 	}
-	
+
 	func numberOfSections(in collectionView: UICollectionView) -> Int {
-		return 4
+		return 2
 	}
 	
 	
@@ -322,6 +406,8 @@ extension ViewController: UICollectionViewDelegate {
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		print(colors[indexPath.row])
 	}
+	
+	
 }
 
 extension ViewController: UICollectionViewDelegateFlowLayout {

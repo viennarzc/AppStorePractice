@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2167EDB92681937B007D8415 /* FeaturedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2167EDB72681937B007D8415 /* FeaturedCollectionViewCell.swift */; };
+		2167EDBA2681937B007D8415 /* FeaturedCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2167EDB82681937B007D8415 /* FeaturedCollectionViewCell.xib */; };
+		2167EDBD2681E120007D8415 /* GameHeaderSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2167EDBB2681E120007D8415 /* GameHeaderSupplementaryView.swift */; };
+		2167EDBE2681E120007D8415 /* GameHeaderSupplementaryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2167EDBC2681E120007D8415 /* GameHeaderSupplementaryView.xib */; };
 		21F49566264E7A1900A9677F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F49565264E7A1900A9677F /* AppDelegate.swift */; };
 		21F49568264E7A1900A9677F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F49567264E7A1900A9677F /* SceneDelegate.swift */; };
 		21F4956A264E7A1900A9677F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F49569264E7A1900A9677F /* ViewController.swift */; };
@@ -43,6 +47,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2167EDB72681937B007D8415 /* FeaturedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedCollectionViewCell.swift; sourceTree = "<group>"; };
+		2167EDB82681937B007D8415 /* FeaturedCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeaturedCollectionViewCell.xib; sourceTree = "<group>"; };
+		2167EDBB2681E120007D8415 /* GameHeaderSupplementaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHeaderSupplementaryView.swift; sourceTree = "<group>"; };
+		2167EDBC2681E120007D8415 /* GameHeaderSupplementaryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameHeaderSupplementaryView.xib; sourceTree = "<group>"; };
 		21F49562264E7A1900A9677F /* AppStorePractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStorePractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21F49565264E7A1900A9677F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21F49567264E7A1900A9677F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -164,6 +172,10 @@
 			isa = PBXGroup;
 			children = (
 				21FA8E64266672D700FCB809 /* AppStoreGamesViewController.swift */,
+				2167EDBB2681E120007D8415 /* GameHeaderSupplementaryView.swift */,
+				2167EDBC2681E120007D8415 /* GameHeaderSupplementaryView.xib */,
+				2167EDB72681937B007D8415 /* FeaturedCollectionViewCell.swift */,
+				2167EDB82681937B007D8415 /* FeaturedCollectionViewCell.xib */,
 			);
 			path = AppStoreGames;
 			sourceTree = "<group>";
@@ -272,11 +284,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				21F49572264E7A1900A9677F /* LaunchScreen.storyboard in Resources */,
+				2167EDBA2681937B007D8415 /* FeaturedCollectionViewCell.xib in Resources */,
 				21F77AC1264FADDD006FB72E /* BackgroundSupplementaryView.xib in Resources */,
 				21F77AB0264EB1F0006FB72E /* HeaderSupplementaryView.xib in Resources */,
 				21F4956F264E7A1900A9677F /* Assets.xcassets in Resources */,
 				21F77AB5264EBBD6006FB72E /* NewBannerSupplementaryView.xib in Resources */,
 				21F4956D264E7A1900A9677F /* Main.storyboard in Resources */,
+				2167EDBE2681E120007D8415 /* GameHeaderSupplementaryView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,7 +320,9 @@
 				21FA8E65266672D700FCB809 /* AppStoreGamesViewController.swift in Sources */,
 				21F77AAB264EB17B006FB72E /* HeaderSupplementaryView.swift in Sources */,
 				21F77ABA264EBC18006FB72E /* NewBannerSupplementaryView.swift in Sources */,
+				2167EDB92681937B007D8415 /* FeaturedCollectionViewCell.swift in Sources */,
 				21F77AC0264FADDD006FB72E /* BackgroundSupplementaryView.swift in Sources */,
+				2167EDBD2681E120007D8415 /* GameHeaderSupplementaryView.swift in Sources */,
 				21F49566264E7A1900A9677F /* AppDelegate.swift in Sources */,
 				21F49568264E7A1900A9677F /* SceneDelegate.swift in Sources */,
 			);

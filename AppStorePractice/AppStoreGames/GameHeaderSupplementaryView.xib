@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="U6b-Vx-4bR">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="cKD-IF-lkO">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="bn8-aQ-5sj">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="29.5"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b7N-ol-adg">
+                                    <rect key="frame" x="0.0" y="0.0" width="150" height="29.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="008-oi-Re7">
+                                    <rect key="frame" x="170" y="0.0" width="150" height="29.5"/>
+                                    <state key="normal" title="See All"/>
+                                </button>
+                            </subviews>
+                        </stackView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ib-m5-T5V">
+                            <rect key="frame" x="0.0" y="29.5" width="41.5" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="bn8-aQ-5sj" firstAttribute="leading" secondItem="cKD-IF-lkO" secondAttribute="leading" id="3jn-zV-c37"/>
+                        <constraint firstItem="9ib-m5-T5V" firstAttribute="top" secondItem="bn8-aQ-5sj" secondAttribute="bottom" id="MnY-nB-57W"/>
+                        <constraint firstItem="bn8-aQ-5sj" firstAttribute="top" secondItem="cKD-IF-lkO" secondAttribute="top" id="dkC-4W-ZCm"/>
+                        <constraint firstAttribute="trailing" secondItem="bn8-aQ-5sj" secondAttribute="trailing" id="mMv-TX-AyA"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
+            <constraints>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="bottom" secondItem="cKD-IF-lkO" secondAttribute="bottom" id="75q-rz-nWH"/>
+                <constraint firstAttribute="trailing" secondItem="cKD-IF-lkO" secondAttribute="trailing" id="QHP-kS-LXQ"/>
+                <constraint firstItem="cKD-IF-lkO" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="h3v-ki-CaE"/>
+                <constraint firstItem="cKD-IF-lkO" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="w2I-kF-Lz6"/>
+            </constraints>
+            <point key="canvasLocation" x="86" y="115"/>
+        </collectionReusableView>
+    </objects>
+</document>

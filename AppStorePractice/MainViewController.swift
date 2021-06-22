@@ -55,6 +55,14 @@ class MainViewController: UIViewController {
 			selectedCompLayout = .five
 			identifier = "ViewController"
 			
+		} else if sender.currentTitle == "Style 6" {
+			selectedCompLayout = .six
+			identifier = "ViewController"
+			
+		} else if sender.currentTitle == "Style 7" {
+			selectedCompLayout = .seven
+			identifier = "ViewController"
+			
 		} else if sender.currentTitle == "AppStore Games" {
 			identifier = "ToAppStoreGames"
 		}
